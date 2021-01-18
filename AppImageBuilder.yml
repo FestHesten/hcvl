@@ -1,0 +1,70 @@
+version: 1
+
+# Use separate source directory to avoid cluttering it with bundled files and dependencies
+script:
+  - mkdir -p ./AppDir
+  - cp -pr ./AppDir.src/* ./AppDir
+
+AppDir:
+  path: './AppDir'
+
+  app_info:
+    id: 'org.tetrahak.hcvl'
+    name: 'hcvl'
+    version: '0.1'
+    icon: 'app_icon'
+    exec: 'bin/bash'
+    exec_args: '$APPDIR/spawner.sh $@'
+
+  apt:
+    arch: 'amd64'
+    sources:
+      # Use packages from Kali Linux as a source
+      - sourceline: 'deb [arch=amd64] http://http.kali.org/kali kali-rolling main non-free contrib'
+        # Kali release signing key
+        key_url: 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xED444FF07D8D0BF6'
+
+    # Included packages in AppImage - add your own from the Kali repository!
+    include:
+      # Avoid using system libc if not explicitly marked as a dependency for packages
+      - 'libc6'
+      # Image base requirements
+      - 'bash'
+      - 'coreutils'
+      # Quality of life tools
+      - 'vim'
+      - 'iproute2'
+      - 'unzip'
+      # Networking
+      - 'socat'
+      - 'netcat'
+      - 'curl'
+      - 'tcpdump'
+      - 'openssh-client'
+      - 'snmp'
+      - 'nmap'
+      - 'masscan'
+      # Script runtimes
+      - 'python3'
+      - 'python2'
+      # Local hacking - Tools for privilege escalation and on-the-box poking
+      - 'testdisk'
+      - 'binwalk'
+      - 'strace'
+      - 'unix-privesc-check'
+      - 'lynis'
+      # Remote hacking
+      - 'hydra'
+      # Misc.
+      - 'ca-certificates'
+      - 'openssl'
+
+    # Exclude unecessary/buggy dependencies
+    exclude:
+      - 'ntfs-3g'
+      - 'libntfs-3g883'
+
+AppImage:
+  update-information: None
+  sign-key: None
+  arch: 'x86_64'
