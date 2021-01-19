@@ -22,7 +22,7 @@ AppDir:
       # Use packages from Kali Linux as a source
       - sourceline: 'deb [arch=amd64] http://http.kali.org/kali kali-rolling main non-free contrib'
         # Kali release signing key
-        key_url: 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xED444FF07D8D0BF6'
+        key_url: 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xED444FF07D8D0BF6'
 
     # Included packages in AppImage - add your own from the Kali repository!
     include:
