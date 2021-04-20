@@ -4,9 +4,9 @@
 ## Introduction
 ["Bring Your Own Island"](https://www.fireeye.com/blog/threat-research/2020/11/live-off-the-land-an-overview-of-unc1945.html)
 is all the fuzz. It's annoying to pop a box and find that not even the most basic utilities exist on the file system.
-Bringing all your messy hacking tools and their mountain of dependencies is also a lot of work.  
+Bringing all your messy security tools and all the dependencies is a lot of work and a messy deal!
   
-I've always thought [BusyBox](https://busybox.net/) was kind of cool - the argv 0 trickery is a nice hack.  
+DrLove always thought [BusyBox](https://busybox.net/) was kind of cool - the argv 0 trickery is a nice hack.  
 And sure, we could probably spend a lot of time to statically compile binaries and merge them together,
 but besides the effort what about everything requiring Python and similar runtimes?  
   
